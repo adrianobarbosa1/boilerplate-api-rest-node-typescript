@@ -1,6 +1,7 @@
 import express from 'express';
 import { router } from './routes/v1';
 import {StatusCodes} from 'http-status-codes';
+import 'dotenv/config';
 
 
 const app = express();
@@ -11,8 +12,8 @@ app.use(router);
 
 app.get('/', (_, res) => {
     res.status(StatusCodes.OK).json({
-        title: 'API NOME',
-        version: '0.0.1',
+        title: process.env.API_NOME,
+        version: process.env.API_VERSION,
     });
 });
 
